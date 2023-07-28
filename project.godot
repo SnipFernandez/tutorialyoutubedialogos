@@ -6,12 +6,11 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=5
+config_version=4
 
 [application]
 
 config/name="TutorialYoutubeDialogos"
-config/tags=PackedStringArray("tutorial_youtube")
-run/main_scene="res://EjemploTween.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+run/main_scene="res://EjemploAnimationPlayer.tscn"
 config/icon="res://icon.svg"
+config/tags=PoolStringArray( "tutorial_youtube" )

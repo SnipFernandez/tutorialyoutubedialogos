@@ -1,115 +1,106 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpdij8x32vycv"]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource type="Script" path="res://EjemploTween.gd" id="1_ko43l"]
-[ext_resource type="Texture2D" uid="uid://bo5kjrlwqf2a" path="res://assets/ui/panel_Example1.png" id="2_0fx4u"]
-[ext_resource type="Texture2D" uid="uid://pr2i8t44b2r2" path="res://assets/ui/arrow_example.png" id="3_a8sga"]
-[ext_resource type="FontFile" uid="uid://ka8uygk523dw" path="res://assets/fonts/PixelAE-Regular (1).ttf" id="3_y4bm1"]
-[ext_resource type="FontFile" uid="uid://c5nmp3ow0c2hc" path="res://assets/fonts/PixelAE-Bold (1).ttf" id="4_wwa4n"]
+[ext_resource path="res://assets/ui/panel_Example1.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/arrow_example.png" type="Texture" id=2]
+[ext_resource path="res://EjemploTween.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/PixelAE-Regular (1).ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/PixelAE-Bold (1).ttf" type="DynamicFontData" id=5]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h74kj"]
-texture = ExtResource("2_0fx4u")
-texture_margin_left = 18.0067
-texture_margin_top = 13.6603
-texture_margin_right = 16.144
-texture_margin_bottom = 14.2812
-region_rect = Rect2(26, 26.5, 399, 97.9722)
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 26.1824, 27.0126, 397.685, 97.0321 )
+margin_left = 14.7018
+margin_right = 14.2718
+margin_top = 11.0264
+margin_bottom = 11.7615
 
-[sub_resource type="Animation" id="Animation_yf8nk"]
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=2]
 resource_name = "MasTexto"
-loop_mode = 1
+loop = true
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TextureRect:position")
+tracks/0/path = NodePath("Control/TextureRect:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [Vector2(828.429, 112.589), Vector2(828.429, 119.284), Vector2(828.429, 112.589)]
+"values": [ Vector2( 828.429, 106.767 ), Vector2( 828.429, 99.692 ), Vector2( 828.429, 106.767 ) ]
 }
 
-[sub_resource type="Animation" id="Animation_ywwsa"]
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/TextureRect:position")
+tracks/0/path = NodePath("Control/TextureRect:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [Vector2(828.429, 112.589)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uaquo"]
-_data = {
-"MasTexto": SubResource("Animation_yf8nk"),
-"RESET": SubResource("Animation_ywwsa")
+"values": [ Vector2( 828.429, 106.767 ) ]
 }
 
 [node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_ko43l")
+script = ExtResource( 3 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -432.0
-offset_top = -244.0
-offset_right = 434.0
-offset_bottom = -67.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_h74kj")
+margin_left = -432.231
+margin_top = -196.0
+margin_right = 433.769
+margin_bottom = -19.0
+custom_styles/panel = SubResource( 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_y4bm1")
-theme_override_fonts/bold_font = ExtResource("4_wwa4n")
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 32
+margin_left = 14.7018
+margin_top = 11.0264
+margin_right = 851.728
+margin_bottom = 165.239
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = SubResource( 4 )
+custom_fonts/bold_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-text = "Probando ..."
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="Control" type="Control" parent="PanelContainer"]
-layout_mode = 2
+margin_left = 14.7018
+margin_top = 11.0264
+margin_right = 851.728
+margin_bottom = 165.239
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/Control"]
-layout_mode = 1
-anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.42029
-offset_top = -36.4695
-offset_right = 36.5797
-offset_bottom = 3.5304
-grow_horizontal = 0
-grow_vertical = 0
-rotation = 1.5708
-texture = ExtResource("3_a8sga")
-expand_mode = 2
-stretch_mode = 5
+margin_left = 828.429
+margin_top = 106.767
+margin_right = 868.429
+margin_bottom = 146.767
+rect_rotation = 90.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer"]
-speed_scale = 1.5
-libraries = {
-"": SubResource("AnimationLibrary_uaquo")
-}
+playback_speed = 1.5
+anims/MasTexto = SubResource( 2 )
+anims/RESET = SubResource( 3 )
